@@ -7,6 +7,8 @@ import com.example.coursemanagementsystem.util.mapper.UserMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class UserService {
@@ -17,5 +19,9 @@ public class UserService {
         User user = UserMapper.toUser(userDto);
         User addedUser = userRepository.save(user);
         return UserMapper.toUserDto(addedUser);
+    }
+
+    public List<User> getAllUsers() {
+        return userRepository.findAll();
     }
 }
