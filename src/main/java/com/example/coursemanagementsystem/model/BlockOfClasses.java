@@ -22,6 +22,6 @@ public class BlockOfClasses {
     @ManyToOne
     private Course course;
 
-    @OneToMany (mappedBy = "block_of_classes")
+    @OneToMany (mappedBy = "blockOfClasses")
     private List<Classes> classes = new ArrayList<>();
 }

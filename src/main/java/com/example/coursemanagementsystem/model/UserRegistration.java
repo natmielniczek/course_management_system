@@ -19,7 +19,7 @@ public class UserRegistration {
     private LocalDate date;
 
     @ManyToOne
-    private User user;
+    private UserEntry userEntry;
 
     @ManyToOne
     private Course course;

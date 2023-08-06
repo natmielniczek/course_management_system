@@ -16,5 +16,5 @@ public class UserNotification {
     private Notification notification;
 
     @ManyToOne
-    private User user;
+    private UserEntry userEntry;
 }
