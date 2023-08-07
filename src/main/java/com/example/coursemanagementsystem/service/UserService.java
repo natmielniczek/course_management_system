@@ -15,13 +15,16 @@ public class UserService {
 
     private final UserRepository userRepository;
 
+    public List<UserEntry> getAllUsers() {
+        return userRepository.findAll();
+    }
     public UserDto addUser(UserDto userDto) {
         UserEntry userEntry = UserMapper.toUser(userDto);
         UserEntry addedUserEntry = userRepository.save(userEntry);
         return UserMapper.toUserDto(addedUserEntry);
     }
 
-    public List<UserEntry> getAllUsers() {
-        return userRepository.findAll();
+    public UserEntry updateUser(UserEntry user) {
+        return userRepository.save(user);
     }
 }
