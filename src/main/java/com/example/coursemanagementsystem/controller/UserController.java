@@ -17,6 +17,15 @@ public class UserController {
 
     private final UserService userService;
 
+    @GetMapping
+    public ResponseEntity<List<UserEntry>> getAllUsers() {
+        try {
+            List<UserEntry> userEntries = userService.getAllUsers();
+            return ResponseEntity.ok(userEntries);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
     @PostMapping
     public ResponseEntity<UserDto> addUser(@RequestBody UserDto userDto) {
         try {
@@ -27,15 +36,13 @@ public class UserController {
         }
     }
 
-    @GetMapping
-    public ResponseEntity<List<UserEntry>> getAllUsers() {
+    @PutMapping
+    public ResponseEntity<UserEntry> updateUser(@RequestBody UserEntry user) {
         try {
-            List<UserEntry> userEntries = userService.getAllUsers();
-            return ResponseEntity.ok(userEntries);
+            UserEntry updateUser = userService.updateUser(user);
+            return ResponseEntity.ok(updateUser);
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+            return ResponseEntity.internalServerError().build();
         }
     }
-
-
 }
