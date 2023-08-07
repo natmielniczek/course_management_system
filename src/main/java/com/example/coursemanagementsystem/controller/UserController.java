@@ -45,4 +45,14 @@ public class UserController {
             return ResponseEntity.internalServerError().build();
         }
     }
+
+    @DeleteMapping
+    public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
+        try {
+            userService.deleteUser(id);
+            return ResponseEntity.noContent().build();
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().build();
+        }
+    }
 }
