@@ -26,6 +26,7 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
+
     @PostMapping
     public ResponseEntity<UserDto> addUser(@RequestBody UserDto userDto) {
         try {
