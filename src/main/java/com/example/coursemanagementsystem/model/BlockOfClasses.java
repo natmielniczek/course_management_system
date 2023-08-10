@@ -1,5 +1,6 @@
 package com.example.coursemanagementsystem.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,6 +21,7 @@ public class BlockOfClasses {
     private String blockName;
 
     @ManyToOne
+    @JsonManagedReference
     private Course course;
 
     @OneToMany (mappedBy = "blockOfClasses")

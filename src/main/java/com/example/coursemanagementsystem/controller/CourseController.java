@@ -18,10 +18,10 @@ public class CourseController {
     private final CourseService courseService;
 
     @GetMapping
-    public ResponseEntity<List<Course>> getAllCourses() {
+    public ResponseEntity<List<CourseDto>> getAllCourses() {
         try {
-            List<Course> courses = courseService.getAllCourses();
-            return ResponseEntity.ok(courses);
+            List<CourseDto> coursesDto = courseService.getAllCourses();
+            return ResponseEntity.ok(coursesDto);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }

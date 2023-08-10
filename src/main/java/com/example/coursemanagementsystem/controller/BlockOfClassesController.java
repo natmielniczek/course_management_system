@@ -1,7 +1,6 @@
 package com.example.coursemanagementsystem.controller;
 
 import com.example.coursemanagementsystem.dto.BlockOfClassesDto;
-import com.example.coursemanagementsystem.model.BlockOfClasses;
 import com.example.coursemanagementsystem.service.BlockOfClassesService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -18,10 +17,10 @@ public class BlockOfClassesController {
     private final BlockOfClassesService blockOfClassesService;
 
     @GetMapping
-    public ResponseEntity<List<BlockOfClasses>> getAllBlockOfClasses() {
+    public ResponseEntity<List<BlockOfClassesDto>> getAllBlockOfClassesDto() {
        try {
-           List<BlockOfClasses> blockOfClasses = blockOfClassesService.getAllBlockOfClasses();
-           return ResponseEntity.ok(blockOfClasses);
+           List<BlockOfClassesDto> blockOfClassesDto = blockOfClassesService.getAllBlockOfClasses();
+           return ResponseEntity.ok(blockOfClassesDto);
        } catch (Exception e) {
            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
        }

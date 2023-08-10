@@ -16,14 +16,14 @@ public class Notification {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne
-    private Classes classes;
-
     @Column(name = "topic")
     private String topic;
 
     @Column(name = "content")
     private String content;
+
+    @OneToOne
+    private Classes classes;
 
     @OneToMany(mappedBy = "notification")
     private List<UserNotification> userNotifications = new ArrayList<>();
