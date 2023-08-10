@@ -1,5 +1,6 @@
 package com.example.coursemanagementsystem.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,5 +21,6 @@ public class Course {
     private String courseName;
 
     @OneToMany(mappedBy = "course")
+    @JsonBackReference
     private List<BlockOfClasses> blockOfClasses = new ArrayList<>();
 }

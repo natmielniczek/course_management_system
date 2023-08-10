@@ -15,8 +15,10 @@ public class CourseService {
 
     private final CourseRepository courseRepository;
 
-    public List<Course> getAllCourses() {
-        return courseRepository.findAll();
+    public List<CourseDto> getAllCourses() {
+        return courseRepository.findAll().stream()
+                .map(CourseMapper::toCourseDto)
+                .toList();
     }
 
     public CourseDto addCourse(CourseDto courseDto) {

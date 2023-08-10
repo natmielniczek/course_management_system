@@ -15,8 +15,10 @@ public class UserService {
 
     private final UserRepository userRepository;
 
-    public List<UserEntry> getAllUsers() {
-        return userRepository.findAll();
+    public List<UserDto> getAllUsers() {
+        return userRepository.findAll().stream()
+                .map(UserMapper::toUserDto)
+                .toList();
     }
 
     public UserDto addUser(UserDto userDto) {

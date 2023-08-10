@@ -18,10 +18,10 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping
-    public ResponseEntity<List<UserEntry>> getAllUsers() {
+    public ResponseEntity<List<UserDto>> getAllUsers() {
         try {
-            List<UserEntry> userEntries = userService.getAllUsers();
-            return ResponseEntity.ok(userEntries);
+            List<UserDto> userDto = userService.getAllUsers();
+            return ResponseEntity.ok(userDto);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
