@@ -36,4 +36,14 @@ public class CourseController {
             return ResponseEntity.internalServerError().build();
         }
     }
+
+    @PutMapping
+    public ResponseEntity<Course> updateCourse(@RequestBody Course course) {
+        try {
+            Course updateCourse = courseService.updateCourse(course);
+            return ResponseEntity.ok(updateCourse);
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().build();
+        }
+    }
 }
