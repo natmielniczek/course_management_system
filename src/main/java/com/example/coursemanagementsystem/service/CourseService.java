@@ -2,6 +2,7 @@ package com.example.coursemanagementsystem.service;
 
 import com.example.coursemanagementsystem.dto.CourseDto;
 import com.example.coursemanagementsystem.model.Course;
+import com.example.coursemanagementsystem.model.UserEntry;
 import com.example.coursemanagementsystem.repository.CourseRepository;
 import com.example.coursemanagementsystem.util.mapper.CourseMapper;
 import lombok.RequiredArgsConstructor;
@@ -25,5 +26,9 @@ public class CourseService {
         Course course = CourseMapper.toCourse(courseDto);
         Course addedCourse = courseRepository.save(course);
         return CourseMapper.toCourseDto(addedCourse);
+    }
+
+    public Course updateCourse(Course course) {
+        return courseRepository.save(course);
     }
 }
