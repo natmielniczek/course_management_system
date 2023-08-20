@@ -12,7 +12,6 @@ public class UserMapper {
         userEntry.setName(userDto.getName());
         userEntry.setSurname(userDto.getSurname());
         userEntry.setActive(userDto.isActive());
-        userEntry.setUserNotification(userDto.getUserNotificationDto().stream().map(UserNotificationMapper::toUserNotification).toList());
         return userEntry;
     }
     public static UserDto toUserDto(UserEntry userEntry) {
@@ -22,7 +21,6 @@ public class UserMapper {
         userDto.setName(userEntry.getName());
         userDto.setSurname(userEntry.getSurname());
         userDto.setActive(userEntry.isActive());
-        userDto.setUserNotificationDto(userEntry.getUserNotification().stream().map(UserNotificationMapper::toUserNotificationDto).toList());
         return userDto;
     }
 }

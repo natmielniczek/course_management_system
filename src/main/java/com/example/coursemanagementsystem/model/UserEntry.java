@@ -34,9 +34,6 @@ public class UserEntry {
     @Column(name = "active")
     private boolean active;
 
-    @OneToMany(mappedBy = "userEntry")
-    List<UserNotification> userNotification = new ArrayList<>();
-
 }
 
 

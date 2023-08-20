@@ -10,7 +10,6 @@ public class NotificationMapper {
         notification.setTopic(notificationDto.getTopic());
         notification.setContent(notificationDto.getContent());
         notification.setClasses(ClassesMapper.toClasses(notificationDto.getClassesDto()));
-        notification.setUserNotifications(notificationDto.getUserNotificationDto().stream().map(UserNotificationMapper::toUserNotification).toList());
         return notification;
     }
 
@@ -19,7 +18,6 @@ public class NotificationMapper {
         notificationDto.setTopic(notification.getTopic());
         notificationDto.setContent(notification.getContent());
         notificationDto.setClassesDto(ClassesMapper.toClassesDto(notification.getClasses()));
-        notificationDto.setUserNotificationDto(notification.getUserNotifications().stream().map(UserNotificationMapper::toUserNotificationDto).toList());
         return notificationDto;
     }
 }

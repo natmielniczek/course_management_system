@@ -25,6 +25,4 @@ public class Notification {
     @OneToOne
     private Classes classes;
 
-    @OneToMany(mappedBy = "notification")
-    private List<UserNotification> userNotifications = new ArrayList<>();
 }

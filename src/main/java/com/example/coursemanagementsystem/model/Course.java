@@ -20,7 +20,4 @@ public class Course {
     @Column(name = "course_name")
     private String courseName;
 
-    @OneToMany(mappedBy = "course")
-    @JsonBackReference
-    private List<BlockOfClasses> blockOfClasses = new ArrayList<>();
 }

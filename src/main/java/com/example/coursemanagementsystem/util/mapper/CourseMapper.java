@@ -8,14 +8,14 @@ public class CourseMapper {
     public static Course toCourse(CourseDto courseDto) {
         Course course = new Course();
         course.setCourseName(courseDto.getCourseName());
-        course.setBlockOfClasses(courseDto.getBlockOfClassesDto().stream().map(BlockOfClassesMapper::toBlockOfClasses).toList());
+        course.setId(courseDto.getId());
         return course;
     }
 
     public static CourseDto toCourseDto(Course course) {
         CourseDto courseDto = new CourseDto();
         courseDto.setCourseName(course.getCourseName());
-        courseDto.setBlockOfClassesDto(course.getBlockOfClasses().stream().map(BlockOfClassesMapper::toBlockOfClassesDto).toList());
+        courseDto.setId(course.getId());
         return courseDto;
     }
 }

@@ -12,5 +12,5 @@ public class NotificationDto {
     private String topic;
     private String content;
     private ClassesDto classesDto;
-    private List<UserNotificationDto> userNotificationDto;
+
 }

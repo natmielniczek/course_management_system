@@ -25,9 +25,12 @@ public class BlockOfClassesService {
 
     }
     public BlockOfClassesDto addBlockOfClasses(BlockOfClassesDto blockOfClassesDto) {
-        Course course = courseRepository.getReferenceById(blockOfClassesDto.getCourseId());
         BlockOfClasses blockOfClasses = BlockOfClassesMapper.toBlockOfClasses(blockOfClassesDto);
+
+        // finding course needs to be done outside toBlockOfClasses
+        Course course = courseRepository.getReferenceById(blockOfClassesDto.getCourseId());
         blockOfClasses.setCourse(course);
+
         BlockOfClasses addedBlockOfClasses = blockOfClassesRepository.save(blockOfClasses);
         return BlockOfClassesMapper.toBlockOfClassesDto(addedBlockOfClasses);
     }

@@ -21,9 +21,6 @@ public class BlockOfClasses {
     private String blockName;
 
     @ManyToOne
-    @JsonManagedReference
     private Course course;
 
-    @OneToMany (mappedBy = "blockOfClasses")
-    private List<Classes> classes = new ArrayList<>();
 }
