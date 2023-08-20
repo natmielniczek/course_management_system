@@ -24,6 +24,7 @@ public class BlockOfClassesService {
                 .toList();
 
     }
+
     public BlockOfClassesDto addBlockOfClasses(BlockOfClassesDto blockOfClassesDto) {
         BlockOfClasses blockOfClasses = BlockOfClassesMapper.toBlockOfClasses(blockOfClassesDto);
 
@@ -33,5 +34,9 @@ public class BlockOfClassesService {
 
         BlockOfClasses addedBlockOfClasses = blockOfClassesRepository.save(blockOfClasses);
         return BlockOfClassesMapper.toBlockOfClassesDto(addedBlockOfClasses);
+    }
+
+    public BlockOfClasses updateBlockOfClasses(BlockOfClasses blockOfClasses) {
+        return blockOfClassesRepository.save(blockOfClasses);
     }
 }
