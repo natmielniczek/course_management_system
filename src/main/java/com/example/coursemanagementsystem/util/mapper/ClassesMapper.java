@@ -9,7 +9,7 @@ public class ClassesMapper {
         Classes classes = new Classes();
         classes.setTopic(classesDto.getTopic());
         classes.setDate(classesDto.getDate());
-        classes.setBlockOfClasses(BlockOfClassesMapper.toBlockOfClasses(classesDto.getBlockOfClassesDto()));
+        //classes.setBlockOfClasses(BlockOfClassesMapper.toBlockOfClasses(classesDto.getBlockOfClassesDto()));
         classes.setNotification(NotificationMapper.toNotification(classesDto.getNotificationDto()));
         return classes;
     }
@@ -18,7 +18,7 @@ public class ClassesMapper {
         ClassesDto classesDto = new ClassesDto();
         classesDto.setTopic(classes.getTopic());
         classesDto.setDate(classes.getDate());
-        classesDto.setBlockOfClassesDto(BlockOfClassesMapper.toBlockOfClassesDto(classes.getBlockOfClasses()));
+        classesDto.setBlockOfClassesId(classes.getBlockOfClasses().getId());
         classesDto.setNotificationDto(NotificationMapper.toNotificationDto(classes.getNotification()));
         return classesDto;
     }

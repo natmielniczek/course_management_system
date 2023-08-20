@@ -11,6 +11,6 @@ public class ClassesDto {
 
     private String topic;
     private LocalDate date;
-    private BlockOfClassesDto blockOfClassesDto;
+    private Long blockOfClassesId;
     private NotificationDto notificationDto;
 }
