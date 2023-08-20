@@ -15,5 +15,5 @@ public class UserDto {
     private String name;
     private String surname;
     private boolean active;
-    private List<UserNotificationDto> userNotificationDto;
+
 }

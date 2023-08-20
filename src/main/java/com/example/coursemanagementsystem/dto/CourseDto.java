@@ -11,5 +11,6 @@ import java.util.List;
 public class CourseDto {
 
     private String courseName;
-    private List<BlockOfClassesDto> blockOfClassesDto;
+    private Long id;
+
 }

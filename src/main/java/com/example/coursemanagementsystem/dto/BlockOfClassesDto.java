@@ -11,6 +11,5 @@ public class BlockOfClassesDto {
 
     private String blockName;
     private Long courseId;
-    private List<ClassesDto> classesDto;
 
 }
