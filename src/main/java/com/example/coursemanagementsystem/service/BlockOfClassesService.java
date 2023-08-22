@@ -25,7 +25,7 @@ public class BlockOfClassesService {
 
     }
 
-    public BlockOfClassesDto addBlockOfClasses(BlockOfClassesDto blockOfClassesDto) {
+    public BlockOfClassesDto upsertBlockOfClasses(BlockOfClassesDto blockOfClassesDto) {
         BlockOfClasses blockOfClasses = BlockOfClassesMapper.toBlockOfClasses(blockOfClassesDto);
 
         // finding course needs to be done outside toBlockOfClasses
@@ -36,7 +36,4 @@ public class BlockOfClassesService {
         return BlockOfClassesMapper.toBlockOfClassesDto(addedBlockOfClasses);
     }
 
-    public BlockOfClasses updateBlockOfClasses(BlockOfClasses blockOfClasses) {
-        return blockOfClassesRepository.save(blockOfClasses);
-    }
 }

@@ -30,7 +30,7 @@ public class BlockOfClassesController {
     @PostMapping
     public ResponseEntity<BlockOfClassesDto> addBlockOfClasses(@RequestBody BlockOfClassesDto blockOfClassesDto) {
         try {
-            BlockOfClassesDto addedBlockOfClassesDto = blockOfClassesService.addBlockOfClasses(blockOfClassesDto);
+            BlockOfClassesDto addedBlockOfClassesDto = blockOfClassesService.upsertBlockOfClasses(blockOfClassesDto);
             return ResponseEntity.ok(addedBlockOfClassesDto);
         } catch (Exception e) {
             return ResponseEntity.internalServerError().build();
@@ -38,9 +38,9 @@ public class BlockOfClassesController {
     }
 
     @PutMapping
-    public ResponseEntity<BlockOfClasses> updateBlockOfClasses(@RequestBody BlockOfClasses blockOfClasses) {
+    public ResponseEntity<BlockOfClassesDto> updateBlockOfClasses(@RequestBody BlockOfClassesDto blockOfClasses) {
         try {
-            BlockOfClasses updateBlock = blockOfClassesService.updateBlockOfClasses(blockOfClasses);
+            BlockOfClassesDto updateBlock = blockOfClassesService.upsertBlockOfClasses(blockOfClasses);
             return ResponseEntity.ok(updateBlock);
         } catch (Exception e) {
             return ResponseEntity.internalServerError().build();
