@@ -1,6 +1,7 @@
 package com.example.coursemanagementsystem.controller;
 
 import com.example.coursemanagementsystem.dto.BlockOfClassesDto;
+import com.example.coursemanagementsystem.model.BlockOfClasses;
 import com.example.coursemanagementsystem.service.BlockOfClassesService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -29,8 +30,18 @@ public class BlockOfClassesController {
     @PostMapping
     public ResponseEntity<BlockOfClassesDto> addBlockOfClasses(@RequestBody BlockOfClassesDto blockOfClassesDto) {
         try {
-            BlockOfClassesDto addedBlockOfClassesDto = blockOfClassesService.addBlockOfClasses(blockOfClassesDto);
+            BlockOfClassesDto addedBlockOfClassesDto = blockOfClassesService.upsertBlockOfClasses(blockOfClassesDto);
             return ResponseEntity.ok(addedBlockOfClassesDto);
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().build();
+        }
+    }
+
+    @PutMapping
+    public ResponseEntity<BlockOfClassesDto> updateBlockOfClasses(@RequestBody BlockOfClassesDto blockOfClasses) {
+        try {
+            BlockOfClassesDto updateBlock = blockOfClassesService.upsertBlockOfClasses(blockOfClasses);
+            return ResponseEntity.ok(updateBlock);
         } catch (Exception e) {
             return ResponseEntity.internalServerError().build();
         }
