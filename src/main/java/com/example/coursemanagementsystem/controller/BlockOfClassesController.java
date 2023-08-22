@@ -46,4 +46,14 @@ public class BlockOfClassesController {
             return ResponseEntity.internalServerError().build();
         }
     }
+
+    @DeleteMapping
+    public ResponseEntity<Void> deleteBlockOfClasses(@RequestBody BlockOfClassesDto blockOfClassesDto) {
+        try {
+            blockOfClassesService.deleteBlockOfClasses(blockOfClassesDto.getId());
+            return ResponseEntity.noContent().build();
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().build();
+        }
+    }
 }

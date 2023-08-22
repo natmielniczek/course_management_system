@@ -36,4 +36,7 @@ public class BlockOfClassesService {
         return BlockOfClassesMapper.toBlockOfClassesDto(addedBlockOfClasses);
     }
 
+    public void deleteBlockOfClasses(Long id) {
+        blockOfClassesRepository.deleteById(id);
+    }
 }
