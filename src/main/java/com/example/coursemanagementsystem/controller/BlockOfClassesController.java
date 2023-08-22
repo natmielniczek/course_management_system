@@ -17,6 +17,9 @@ public class BlockOfClassesController {
 
     private final BlockOfClassesService blockOfClassesService;
 
+    /*
+     * { }
+     */
     @GetMapping
     public ResponseEntity<List<BlockOfClassesDto>> getAllBlockOfClassesDto() {
        try {
@@ -27,6 +30,12 @@ public class BlockOfClassesController {
        }
     }
 
+    /*
+     * {
+     *     "blockName": <name>,
+     *     "courseId": <courseId>
+     * }
+     */
     @PostMapping
     public ResponseEntity<BlockOfClassesDto> addBlockOfClasses(@RequestBody BlockOfClassesDto blockOfClassesDto) {
         try {
@@ -37,6 +46,13 @@ public class BlockOfClassesController {
         }
     }
 
+    /*
+     * {
+     *     "id": <id>
+     *     "blockName": <name>,
+     *     "courseId": <courseId>
+     * }
+     */
     @PutMapping
     public ResponseEntity<BlockOfClassesDto> updateBlockOfClasses(@RequestBody BlockOfClassesDto blockOfClasses) {
         try {
@@ -47,6 +63,11 @@ public class BlockOfClassesController {
         }
     }
 
+    /*
+     * {
+     *     "id": <id>
+     * }
+     */
     @DeleteMapping
     public ResponseEntity<Void> deleteBlockOfClasses(@RequestBody BlockOfClassesDto blockOfClassesDto) {
         try {
