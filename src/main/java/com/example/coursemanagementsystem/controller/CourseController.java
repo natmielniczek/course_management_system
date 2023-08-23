@@ -46,4 +46,14 @@ public class CourseController {
             return ResponseEntity.internalServerError().build();
         }
     }
+
+    @DeleteMapping
+    public ResponseEntity<Void> deleteCourse(@RequestBody CourseDto courseDto) {
+        try {
+            courseService.deleteCourse(courseDto.getId());
+            return ResponseEntity.noContent().build();
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().build();
+        }
+    }
 }
