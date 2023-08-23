@@ -1,7 +1,6 @@
 package com.example.coursemanagementsystem.controller;
 
 import com.example.coursemanagementsystem.dto.BlockOfClassesDto;
-import com.example.coursemanagementsystem.model.BlockOfClasses;
 import com.example.coursemanagementsystem.service.BlockOfClassesService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
