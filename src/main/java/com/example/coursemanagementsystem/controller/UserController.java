@@ -48,9 +48,9 @@ public class UserController {
     }
 
     @DeleteMapping
-    public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteUser(@RequestBody UserDto userDto) {
         try {
-            userService.deleteUser(id);
+            userService.deleteUser(userDto.getId());
             return ResponseEntity.noContent().build();
         } catch (Exception e) {
             return ResponseEntity.internalServerError().build();
