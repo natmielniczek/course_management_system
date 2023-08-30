@@ -1,0 +1,6 @@
+# curl -i --user user1:user1Pass localhost:8080/course
+GET http://localhost:8080/course
+Authorization: Basic user1 user1Pass
+
+###
+
