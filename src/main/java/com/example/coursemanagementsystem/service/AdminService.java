@@ -21,7 +21,7 @@ public class AdminService {
         instructor.setName(instructorDto.getName());
         instructor.setSurname(instructorDto.getSurname());
         instructor.setActive(instructorDto.isActive());
-        UserMapper.toUser(instructorDto);
-        return UserMapper.toUserDto(instructor);
+        UserEntry addedInstructor = userRepository.save(instructor);
+        return UserMapper.toUserDto(addedInstructor);
     }
 }

@@ -30,7 +30,7 @@ public class CustomWebSecurityConfigurerAdapter {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http
+        http.csrf().disable()
                 .sessionManagement().sessionCreationPolicy(
                         SessionCreationPolicy.STATELESS)
                 .and()
@@ -41,7 +41,7 @@ public class CustomWebSecurityConfigurerAdapter {
                 .authenticated()
                 .and()
                 .httpBasic()
-                .authenticationEntryPoint(authenticationEntryPoint);
+                .authenticationEntryPoint(authenticationEntryPoint).and().headers().frameOptions().disable();
         http.addFilterAfter(new CustomFilter(), BasicAuthenticationFilter.class);
         return http.build();
     }
